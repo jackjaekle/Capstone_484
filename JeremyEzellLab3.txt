@@ -1,0 +1,18 @@
+CREATE PROCEDURE dbo.JeremyEzellLab3
+
+	--Receive date for:
+	@Username AS nvarchar(50)
+
+as
+begin
+
+	--SPEED
+	SET NOCOUNT ON;
+
+	--Query
+
+	SELECT UserName
+	FROM ELogin
+	WHERE UserName = @Username;
+
+	end;

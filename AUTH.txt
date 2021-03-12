@@ -1,0 +1,35 @@
+
+CREATE TABLE Login(
+	UserName	varchar(50) NOT NULL,
+	Password	varchar(256) NOT NULL,
+ PRIMARY KEY (UserName),
+);
+
+CREATE TABLE ELogin(
+	UserName	varchar(50) NOT NULL,
+	Password	varchar(256) NOT NULL,
+ PRIMARY KEY (UserName),
+);
+
+
+Insert into Login (UserName, Password)
+Values ('kilpatwa@dukes.jmu.edu', '1000:g+ni2BSJK8134fm3QYAJpI1DjNOF0tnN:K2PVDRFs+bpr9IuWWddPMAxVpGU=');
+Insert into Login (UserName, Password)
+Values ('georgenr@dukes.jmu.edu', '1000:g+ni2BSJK8134fm3QYAJpI1DjNOF0tnN:K2PVDRFs+bpr9IuWWddPMAxVpGU=');
+Insert into Login (UserName, Password)
+Values ('billy@dukes.jmu.edu', '1000:g+ni2BSJK8134fm3QYAJpI1DjNOF0tnN:K2PVDRFs+bpr9IuWWddPMAxVpGU=');
+Insert into Login (UserName, Password)
+Values ('gamin@dukes.jmu.edu', '1000:g+ni2BSJK8134fm3QYAJpI1DjNOF0tnN:K2PVDRFs+bpr9IuWWddPMAxVpGU=');
+Insert into Login (UserName, Password)
+Values ('admin', '1000:RENDTt96M+I4/Ba8BCAb3BCNHonl7NSC:5BnMvxfnvoxde5CFS3+n4Vy/Dl4=');
+
+Insert into ELogin (UserName, Password)
+Values ('kilpat@dukes.jmu.edu', '1000:g+ni2BSJK8134fm3QYAJpI1DjNOF0tnN:K2PVDRFs+bpr9IuWWddPMAxVpGU=');
+Insert into ELogin (UserName, Password)
+Values ('georg@dukes.jmu.edu', '1000:g+ni2BSJK8134fm3QYAJpI1DjNOF0tnN:K2PVDRFs+bpr9IuWWddPMAxVpGU=');
+Insert into ELogin (UserName, Password)
+Values ('bob@dukes.jmu.edu', '1000:g+ni2BSJK8134fm3QYAJpI1DjNOF0tnN:K2PVDRFs+bpr9IuWWddPMAxVpGU=');
+Insert into ELogin (UserName, Password)
+Values ('jack@dukes.jmu.edu', '1000:g+ni2BSJK8134fm3QYAJpI1DjNOF0tnN:K2PVDRFs+bpr9IuWWddPMAxVpGU=');
+Insert into ELogin (UserName, Password)
+Values ('admin', '1000:RENDTt96M+I4/Ba8BCAb3BCNHonl7NSC:5BnMvxfnvoxde5CFS3+n4Vy/Dl4=');

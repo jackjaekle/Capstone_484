@@ -1,0 +1,193 @@
+
+CREATE TABLE Customer(
+	CustomerID int IDENTITY(1,1) NOT NULL,
+	CustomerName varchar(50) NOT NULL,
+	CustomerPhone varchar(50) NOT NULL,
+	CustomerPhoneType varchar(50) NOT NULL,
+	CustomerEmail varchar(50) NOT NULL,
+	CustomerContactType varchar(50) NOT NULL,
+	CustomerFoundUsBy varchar(50) NOT NULL,
+	CustomerCurrentAddress varchar(100) NULL,
+	typeOfService varchar(50) NULL,
+	Servicedate date NULL,
+	descriptionOfNeeds varchar(300) NULL,
+	ServicedYN BIT NOT Null,
+ PRIMARY KEY (CustomerID),
+);
+
+CREATE TABLE Employee(
+	EmployeeID int IDENTITY(1,1) NOT NULL,
+	EmployeeName varchar(50) NOT NULL,
+	EmployeeAddress varchar(50) NOT NULL,
+	EmployeePhone varchar(50) NOT NULL,
+	EmployeeEmail varchar(50) NOT NULL,
+ PRIMARY KEY (EmployeeID),
+);
+
+CREATE TABLE Equipment(
+	EquipmentID int IDENTITY(1,1) NOT NULL,
+	EquipmentName varchar(50) NOT NULL,
+	EquipmentCost money NOT NULL,
+ PRIMARY KEY (EquipmentID),
+);
+
+CREATE TABLE Service(
+	ServiceID int IDENTITY(1,1) NOT NULL,
+	CustomerID int NOT NULL,
+	ServiceName varchar(50) NOT NULL,
+	ServiceDate date NOT NULL,
+	ServiceCost money NOT NULL,
+	CompletionDate date NULL,
+	UpdateStatus varchar(50) NULL,
+	PaymentStatus varchar(50) NULL,
+	Origin varchar(50) NULL,
+	Destination varchar(50) NULL,
+	AuctionHouse varchar(50) NULL,
+	AuctionEmployee varchar(50) NULL,
+	AuctionLot varchar(50) NULL,
+	AuctionDate date NULL,
+	AuctionedYN BIT Null,
+ PRIMARY KEY (ServiceID),
+ Foreign Key (CustomerID) REFERENCES Customer(CustomerID),
+);
+
+CREATE TABLE Item(
+	ItemID int IDENTITY(1,1) NOT NULL,
+	ServiceID int NOT NULL,
+	ItemDescription varchar(max) NULL,
+	ItemCost money NOT NULL,
+	InventoryDate date NOT NULL,
+ PRIMARY KEY (ItemID),
+ Foreign Key (ServiceID) REFERENCES Service(ServiceID),
+);
+
+CREATE TABLE Workflow(
+	WorkflowID int IDENTITY(1,1) NOT NULL,
+	EmployeeID int NOT NULL,
+	ServiceID int NOT NULL,
+	StartDate date NULL,
+	EndDate date NOT NULL,
+	Status varchar(50) NOT NULL,
+ PRIMARY KEY (WorkflowID),
+ Foreign Key (ServiceID) REFERENCES Service(ServiceID),
+ Foreign Key (EmployeeID) REFERENCES Employee(EmployeeID),
+);
+
+CREATE TABLE Note(
+	NoteID int IDENTITY(1,1) NOT NULL,
+	WorkflowID int NOT NULL,
+	NoteTitle varchar(50) NOT NULL,
+	NoteBody varchar(500) NOT NULL,
+ PRIMARY KEY (NoteID),
+ Foreign Key (WorkflowID) REFERENCES Workflow(WorkflowID),
+);
+
+CREATE TABLE EquipmentRent(
+	EquipmentID int NOT NULL,
+	ServiceID int NOT NULL,
+	RentDate date NOT NULL,
+	RentCondition varchar(50) NOT NULL,
+	ReturnDate date NULL,
+	ReturnCondition varchar(50) NULL,
+ Foreign Key (EquipmentID) REFERENCES Equipment(EquipmentID),
+ Foreign Key (ServiceID) REFERENCES Service(ServiceID),
+);
+
+CREATE TABLE AuctionEvent(
+	AuctionID int NOT NULL,
+	ServiceID int NOT NULL,
+	ItemID int NOT NULL,
+	AuctionName varchar(50) NOT NULL,
+	AuctionDate date NOT NULL,
+	AuctionLocation varchar(50) NOT NULL,
+);
+
+
+Insert into Customer (CustomerName, CustomerPhone, CustomerPhoneType, CustomerEmail, CustomerContactType, CustomerFoundUsBy, CustomerCurrentAddress, descriptionOfNeeds, ServicedYN)
+Values ('William Kilpatrick', '703-943-6954', 'Cell', 'kilpatwa@dukes.jmu.edu', 'By Phone', 'Web add', '1825 putter ct.', 'Needs extra furniture moved', '1');
+Insert into Customer (CustomerName, CustomerPhone, CustomerPhoneType, CustomerEmail, CustomerContactType, CustomerFoundUsBy, CustomerCurrentAddress, typeOfService, Servicedate, descriptionOfNeeds, ServicedYN)
+Values ('Noah George', '703-943-6957', 'Cell', 'georgenr@dukes.jmu.edu', 'By Phone', 'Web add', '1822 putter ct.', 'Moving', '2/17/2021', 'need all the stuff in my house moved out', '1');
+Insert into Customer (CustomerName, CustomerPhone, CustomerPhoneType, CustomerEmail, CustomerContactType, CustomerFoundUsBy, CustomerCurrentAddress, typeOfService, Servicedate, descriptionOfNeeds, ServicedYN)
+Values ('bob bobby', '540-943-6954', 'Cell', 'billy@dukes.jmu.edu', 'By Phone', 'Web add', '1822 putter ct.', 'Auction', '2/21/2021', 'I need all my stuff Auctioned off', '1');
+Insert into Customer (CustomerName, CustomerPhone, CustomerPhoneType, CustomerEmail, CustomerContactType, CustomerFoundUsBy, CustomerCurrentAddress, descriptionOfNeeds, ServicedYN)
+Values ('jack box', '703-943-9009','Cell', 'gamin@dukes.jmu.edu', 'By Phone', 'Web add', '1822 putter ct.', 'I need all my stuff Auctioned off', '1');
+Insert into Customer (CustomerName, CustomerPhone, CustomerPhoneType, CustomerEmail, CustomerContactType, CustomerFoundUsBy, CustomerCurrentAddress, descriptionOfNeeds, ServicedYN)
+Values ('admin', '703-943-6954', 'Cell', 'admin', 'By Phone', 'Web add', '1825 putter ct.', 'Needs extra furniture moved', '1');
+
+Insert into Employee (EmployeeName, EmployeeAddress, EmployeePhone, EmployeeEmail)
+Values ('William Kilpatrick', '1822 Putter ct.', '703-943-6954','kilpat@dukes.jmu.edu');
+Insert into Employee (EmployeeName, EmployeeAddress, EmployeePhone, EmployeeEmail)
+Values ('Noah George','1821 Putter ct.', '703-943-6957','georg@dukes.jmu.edu');
+Insert into Employee (EmployeeName, EmployeeAddress, EmployeePhone, EmployeeEmail)
+Values ('bob bobby','1823 Putter ct.', '540-943-6954','bob@dukes.jmu.edu');
+Insert into Employee (EmployeeName, EmployeeAddress, EmployeePhone, EmployeeEmail)
+Values ('jack box','1824 Putter ct.', '703-943-9009','jack@dukes.jmu.edu');
+Insert into Employee (EmployeeName, EmployeeAddress, EmployeePhone, EmployeeEmail)
+Values ('admin', '1822 Putter ct.', '703-943-6954','admin');
+
+Insert into Equipment (EquipmentName, EquipmentCost)
+Values ('forklift1', '25000');
+Insert into Equipment (EquipmentName, EquipmentCost)
+Values ('forklift2', '25000');
+Insert into Equipment (EquipmentName, EquipmentCost)
+Values ('Truck1', '45000');
+Insert into Equipment (EquipmentName, EquipmentCost)
+Values ('Truck2', '45000');
+
+Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, UpdateStatus, PaymentStatus, Origin, Destination)
+Values ('1', 'Moving Will', '2/10/2021','10000', '2/13/2021', null, null, '1822 putter ct.', '1825 putter ct.');
+Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, UpdateStatus, PaymentStatus, Origin, Destination)
+Values ('2', 'Moving noah', '2/14/2021','10000', '2/17/2021', null, null, '540 westside br.', '1822 putter ct.');
+Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, Origin,  UpdateStatus, PaymentStatus, AuctionHouse, AuctionEmployee, AuctionLot, AuctionDate, AuctionedYN)
+Values ('3', 'Auctioning for bob', '2/21/2021','5000', '2/24/2021', '1822 putter ct.', null, null, 'Auction House 1', 'bob', 'lot 1', '2/23/2021', '1');
+Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, Origin,  UpdateStatus, PaymentStatus, AuctionHouse, AuctionEmployee, AuctionLot, AuctionDate, AuctionedYN)
+Values ('4', 'Auctioning for jack', '2/28/2021','5000', '3/3/2021', '1822 putter ct.', null, null, 'Auction House 2', 'Will', 'lot 2', '3/2/2021', '1');
+
+Insert into Item (ServiceID, ItemDescription, ItemCost, InventoryDate)
+Values ('3', 'lamp', '20','2/10/2021');
+Insert into Item (ServiceID, ItemDescription, ItemCost, InventoryDate)
+Values ('3', 'table', '100','2/10/2021');
+Insert into Item (ServiceID, ItemDescription, ItemCost, InventoryDate)
+Values ('4', 'TV', '500','2/14/2021');
+Insert into Item (ServiceID, ItemDescription, ItemCost, InventoryDate)
+Values ('4', 'Bed Frame', '200','2/14/2021');
+
+Insert into WorkFlow (EmployeeID, ServiceID, StartDate, EndDate, Status)
+Values ('1', '1','2/10/2021', '2/11/2021', 'Mover');
+Insert into WorkFlow (EmployeeID, ServiceID, StartDate, EndDate, Status)
+Values ('2', '1','2/11/2021', '2/12/2021', 'Mover');
+Insert into WorkFlow (EmployeeID, ServiceID, StartDate, EndDate, Status)
+Values ('3', '3','2/21/2021', '2/24/2021', 'Auctioneer');
+Insert into WorkFlow (EmployeeID, ServiceID, StartDate, EndDate, Status)
+Values ('4', '4','2/28/2021', '3/3/2021', 'Auctioneer');
+
+Insert into Note (WorkflowID, NoteTitle, NoteBody)
+Values ('1', 'Wills Request1', 'Will wants his PC wraped in styrofoam before it is moved.');
+Insert into Note (WorkflowID, NoteTitle, NoteBody)
+Values ('4', 'Jacks Request2', 'Jack wants his painting to be sold at a high price.');
+Insert into Note (WorkflowID, NoteTitle, NoteBody)
+Values ('2', 'damange report', 'Noahs TV was broken in transit.');
+Insert into Note (WorkflowID, NoteTitle, NoteBody)
+Values ('3', 'Jacks Request1', 'Jack does not want his TV to be sold.');
+
+Insert into EquipmentRent (EquipmentID, ServiceID, RentDate, RentCondition, ReturnDate, ReturnCondition)
+Values ('1', '1', '2/11/2021','good', '3/12/2021', 'good');
+Insert into EquipmentRent (EquipmentID, ServiceID, RentDate, RentCondition, ReturnDate, ReturnCondition)
+Values ('3', '1', '2/11/2021','good', '3/12/2021', 'good')
+Insert into EquipmentRent (EquipmentID, ServiceID, RentDate, RentCondition, ReturnDate, ReturnCondition)
+Values ('2', '2', '2/11/2021','good', '3/13/2021', 'good');
+Insert into EquipmentRent (EquipmentID, ServiceID, RentDate, RentCondition, ReturnDate, ReturnCondition)
+Values ('4', '2', '2/15/2021','good', '3/16/2021', 'good');
+
+Insert into AuctionEvent (AuctionID, ServiceID, ItemID, AuctionName, AuctionDate, AuctionLocation)
+Values ('1','0', '0', 'GreenVill Auction','2/23/2021', 'GreenVill Auction House');
+Insert into AuctionEvent (AuctionID, ServiceID, ItemID, AuctionName, AuctionDate, AuctionLocation)
+Values ('2','0', '0', 'WestTown Auction','3/02/2021', 'WestTown Auction House');
+Insert into AuctionEvent (AuctionID, ServiceID, ItemID, AuctionName, AuctionDate, AuctionLocation)
+Values ('1','3', '1', 'GreenVill Auction','2/23/2021', 'GreenVill Auction House');
+Insert into AuctionEvent (AuctionID, ServiceID, ItemID, AuctionName, AuctionDate, AuctionLocation)
+Values ('1','3', '2', 'GreenVill Auction','2/23/2021', 'GreenVill Auction House');
+Insert into AuctionEvent (AuctionID, ServiceID, ItemID, AuctionName, AuctionDate, AuctionLocation)
+Values ('2','4', '3', 'WestTown Auction','3/2/2021', 'WestTown Auction House');
+Insert into AuctionEvent (AuctionID, ServiceID, ItemID, AuctionName, AuctionDate, AuctionLocation)
+Values ('2','4', '4', 'WestTown Auction','3/2/2021', 'WestTown Auction House');
