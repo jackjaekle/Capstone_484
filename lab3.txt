@@ -1,4 +1,3 @@
-
 CREATE TABLE Customer(
 	CustomerID int IDENTITY(1,1) NOT NULL,
 	CustomerName varchar(50) NOT NULL,
@@ -102,6 +101,27 @@ CREATE TABLE AuctionEvent(
 	AuctionLocation varchar(50) NOT NULL,
 );
 
+CREATE TABLE MoveForm(
+	MoveFormID int Identity(1,1) NOT NULL,
+	ServiceID int NOT NULL,
+	Stories int NOT NULL,
+	TruckDist int,
+	DrivewayAccess varchar(10),
+	LoadCondition varchar(300),
+	Foreign Key (ServiceID) REFERENCES Service(ServiceID)
+);
+
+CREATE TABLE Rooms(
+	RoomID int IDENTITY(1,1) NOT NULL,
+	MoveFormID int NOT NULL,
+	Name varchar(15) NOT NULL,
+	Floor varchar(10) NOT NULL,
+	TypeofBoxes varchar(10),
+	NumOfBoxes int,
+	Blankets BIT, 
+	FOREIGN KEY MoveFormID REFERENCES MoveForm(MoveFormID)
+);
+
 
 Insert into Customer (CustomerName, CustomerPhone, CustomerPhoneType, CustomerEmail, CustomerContactType, CustomerFoundUsBy, CustomerCurrentAddress, descriptionOfNeeds, ServicedYN)
 Values ('William Kilpatrick', '703-943-6954', 'Cell', 'kilpatwa@dukes.jmu.edu', 'By Phone', 'Web add', '1825 putter ct.', 'Needs extra furniture moved', '1');
@@ -191,3 +211,23 @@ Insert into AuctionEvent (AuctionID, ServiceID, ItemID, AuctionName, AuctionDate
 Values ('2','4', '3', 'WestTown Auction','3/2/2021', 'WestTown Auction House');
 Insert into AuctionEvent (AuctionID, ServiceID, ItemID, AuctionName, AuctionDate, AuctionLocation)
 Values ('2','4', '4', 'WestTown Auction','3/2/2021', 'WestTown Auction House');
+
+Insert into MoveForm (ServceID, Stories, TruckDist, DrivewayAccess, LoadCondition)
+Values (1, 2, 30, 'easy', 'Poor Acces for Truck and Steep driveway');
+Insert into MoveForm (ServceID, Stories, TruckDist, DrivewayAccess, LoadCondition)
+Values (2, 1, 10, 'None', 'Perfect');
+
+Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
+Values (1, 'Bedroom', 2, 'Big ones', 5, 0);
+Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
+Values (1, 'Bedroom', 1, 'Small ones', 20, 1);
+Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
+Values (1, 'Patio', 1, 'None', 0, 0);
+Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
+Values (2, 'Bedroom', 1, 'Big', 5, 0);
+Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
+Values (2, 'Bathroom', 1, 'Small', 5, 0);
+Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
+Values (2, 'Garage', 1, 'Massive', 2, 1);
+
+
