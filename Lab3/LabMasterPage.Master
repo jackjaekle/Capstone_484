@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LabMasterPage.master.cs" Inherits="Lab1.LabMasterPage" %>
+
+<!--Noah  George, William Kilpatrick, Henry Requeno-Villeda 2/15/2021 -->
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div align="right">
+
+            <asp:Table ID="Table1" runat="server">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label9" runat="server" Text="Employee Login :"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <div align="left">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label3" runat="server" Text="UserName :"></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+			                <asp:TextBox ID="EUserName" runat="server"></asp:TextBox>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <asp:Label ID="Label4" runat="server" Text="Password :"></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+			                <asp:TextBox ID="EPassword" runat="server"></asp:TextBox>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button2" runat="server" Text="Login" OnClick="ELogin_Click" />
+
+                            <br />
+
+                        </div>
+                    </asp:TableCell>
+                </asp:TableRow>
+
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label11" runat="server" Text="Customer Login :"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           <asp:Label ID="Label6" runat="server" Text="UserName :"></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:TextBox ID="CUserName" runat="server"></asp:TextBox>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <asp:Label ID="Label7" runat="server" Text="Password :"></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:TextBox ID="CPassword" runat="server"></asp:TextBox>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button3" runat="server" Text="Login" OnClick="CLogin_Click" />
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="NewCustomer" runat="server" Text="Sign Up" OnClick="NewCustomer_Click"/>
+
+                            <br />
+
+                        </div>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+
+            <br />
+                <asp:Label ID="MissingInput" runat="server" Text=""></asp:Label>
+
+        </div>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+    </form>
+</body>
+</html>
