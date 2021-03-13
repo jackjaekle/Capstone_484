@@ -60,6 +60,42 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView grdMoveForm;
 
         /// <summary>
+        /// lblFloorInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFloorInfo;
+
+        /// <summary>
+        /// ddlFloor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFloor;
+
+        /// <summary>
+        /// btnShowFloor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnShowFloor;
+
+        /// <summary>
+        /// btnShowAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnShowAll;
+
+        /// <summary>
         /// lblRoomInfo control.
         /// </summary>
         /// <remarks>
