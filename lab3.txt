@@ -102,7 +102,7 @@ CREATE TABLE AuctionEvent(
 );
 
 CREATE TABLE MoveForm(
-	MoveFormID int Identity(1,1) NOT NULL,
+	MoveFormID int Identity(1,1) NOT NULL PRIMARY KEY,
 	ServiceID int NOT NULL,
 	Stories int NOT NULL,
 	TruckDist int,
@@ -118,8 +118,9 @@ CREATE TABLE Rooms(
 	Floor varchar(10) NOT NULL,
 	TypeofBoxes varchar(10),
 	NumOfBoxes int,
-	Blankets BIT, 
-	FOREIGN KEY MoveFormID REFERENCES MoveForm(MoveFormID)
+	Blankets BIT,
+	PRIMARY KEY(RoomID, MoveFormID),
+	FOREIGN KEY (MoveFormID) REFERENCES MoveForm(MoveFormID)
 );
 
 
@@ -212,9 +213,9 @@ Values ('2','4', '3', 'WestTown Auction','3/2/2021', 'WestTown Auction House');
 Insert into AuctionEvent (AuctionID, ServiceID, ItemID, AuctionName, AuctionDate, AuctionLocation)
 Values ('2','4', '4', 'WestTown Auction','3/2/2021', 'WestTown Auction House');
 
-Insert into MoveForm (ServceID, Stories, TruckDist, DrivewayAccess, LoadCondition)
-Values (1, 2, 30, 'easy', 'Poor Acces for Truck and Steep driveway');
-Insert into MoveForm (ServceID, Stories, TruckDist, DrivewayAccess, LoadCondition)
+Insert into MoveForm (ServiceID, Stories, TruckDist, DrivewayAccess, LoadCondition)
+Values (1, 2, 30, 'easy', 'Poor Access for Truck and Steep driveway');
+Insert into MoveForm (ServiceID, Stories, TruckDist, DrivewayAccess, LoadCondition)
 Values (2, 1, 10, 'None', 'Perfect');
 
 Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
