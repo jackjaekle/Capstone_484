@@ -19,9 +19,9 @@ namespace Lab3
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "Select * FROM MoveForm WHERE ServiceID = " + ddlMoveForm.SelectedValue;
-            String sqlQuery2 = "SELECT * from Rooms WHERE MoveFormID = " + ddlMoveForm.SelectedValue;
-            String sqlQuery3 = "SELECT DISTINCT Floor from Rooms WHERE MoveFormID = " + ddlMoveForm.SelectedValue;
+            String sqlQuery = "Select * FROM MoveForm WHERE ServiceID = " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
+            String sqlQuery2 = "SELECT * from Rooms WHERE MoveFormID = " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
+            String sqlQuery3 = "SELECT DISTINCT Floor from Rooms WHERE MoveFormID = " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlCommand sqlCommand = new SqlCommand();
@@ -58,8 +58,8 @@ namespace Lab3
             ddlFloor.DataBind();
             sqlConnect.Close();
 
-            lblMoveForm.Text = "MoveForm information for MoveForm " + ddlMoveForm.SelectedValue;
-            lblRoomInfo.Text = "Rooms Information for MoveForm " + ddlMoveForm.SelectedValue;
+            lblMoveForm.Text = "MoveForm information for MoveForm " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
+            lblRoomInfo.Text = "Rooms Information for MoveForm " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace Lab3
 
         protected void btnShowFloor_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "Select * FROM Rooms WHERE MoveFormID = " + ddlMoveForm.SelectedValue + " AND Floor = " + ddlFloor.SelectedValue;
+            String sqlQuery = "Select * FROM Rooms WHERE MoveFormID = " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue) + " AND Floor = " + HttpUtility.HtmlEncode(ddlFloor.SelectedValue);
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlCommand sqlCommand = new SqlCommand();
@@ -83,12 +83,12 @@ namespace Lab3
             grdRoomInfo.DataBind();
             sqlConnect.Close();
 
-            lblRoomInfo.Text = "Rooms Information for MoveForm " + ddlMoveForm.SelectedValue + ", Floor " + ddlFloor.SelectedValue;
+            lblRoomInfo.Text = "Rooms Information for MoveForm " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue) + ", Floor " + HttpUtility.HtmlEncode(ddlFloor.SelectedValue);
         }
 
         protected void btnShowAll_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "Select * FROM Rooms WHERE MoveFormID = " + ddlMoveForm.SelectedValue;
+            String sqlQuery = "Select * FROM Rooms WHERE MoveFormID = " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlCommand sqlCommand = new SqlCommand();
@@ -102,7 +102,7 @@ namespace Lab3
             grdRoomInfo.DataBind();
             sqlConnect.Close();
 
-            lblRoomInfo.Text = "Rooms Information for MoveForm " + ddlMoveForm.SelectedValue;
+            lblRoomInfo.Text = "Rooms Information for MoveForm " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
         }
     }
 }
