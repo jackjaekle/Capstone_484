@@ -30,7 +30,12 @@
                 <asp:Button ID="invAuction" runat="server" Text="Customer Inventories Waiting to be sent to Auction" OnClick="invAuction_Click" Width="312px"/>
                 <asp:Label ID="auctionWait" runat="server" Text=""></asp:Label>
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="ServiceInfo" runat="server" Text="Service Info" Width="130px" OnClick="ServiceInfo_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="moveFormBtn" runat="server" Text="MoveForm Info" OnClick="moveFormBtn_Click" Width="130px"/>
+
+            <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="ServiceInfo" runat="server" Text="Service Info" Width="130px" OnClick="ServiceInfo_Click" />
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

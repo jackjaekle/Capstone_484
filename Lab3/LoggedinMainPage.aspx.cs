@@ -154,5 +154,10 @@ namespace Lab1
             Response.Redirect("LogCreateNewAuction.aspx");
         }
 
+
+        protected void moveFormBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LogMoveFormInfo.aspx");
+        }
     }
 }
