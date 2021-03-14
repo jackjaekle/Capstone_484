@@ -1,3 +1,15 @@
+DROP table Rooms
+DROP table MoveForm
+DROP table AuctionEvent
+DROP table Note
+DROP table EquipmentRent
+DROP table Item
+DROP table Workflow
+DROP table Service
+DROP table Equipment
+DROP table Employee
+DROP table Customer
+
 CREATE TABLE Customer(
 	CustomerID int IDENTITY(1,1) NOT NULL,
 	CustomerName varchar(50) NOT NULL,
@@ -11,6 +23,7 @@ CREATE TABLE Customer(
 	Servicedate date NULL,
 	descriptionOfNeeds varchar(300) NULL,
 	ServicedYN BIT NOT Null,
+	MoveCreateYN BIT Null,
  PRIMARY KEY (CustomerID),
 );
 
@@ -46,6 +59,20 @@ CREATE TABLE Service(
 	AuctionLot varchar(50) NULL,
 	AuctionDate date NULL,
 	AuctionedYN BIT Null,
+	PriceOrigin varchar(50) Null,
+	NumberOfTrucks varchar(3) Null,
+	NumberOfWorkers varchar(3) Null,
+	ContractPrice varchar(10) NULL,
+	ConSuppliesCost varchar(10) NULL,
+	EstHours varchar(5) NULL,
+	FinHours varchar(5) NULL,
+	Mileage varchar(10) NULL,
+	Fuel varchar(5) NULL,
+	Insurance varchar(50) NULL, 
+	WorkerPay varchar(10) NULL,
+	Food varchar(50) NULL,
+	Hotel varchar(50) NULL,
+	
  PRIMARY KEY (ServiceID),
  Foreign Key (CustomerID) REFERENCES Customer(CustomerID),
 );
@@ -155,10 +182,10 @@ Values ('Truck1', '45000');
 Insert into Equipment (EquipmentName, EquipmentCost)
 Values ('Truck2', '45000');
 
-Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, UpdateStatus, PaymentStatus, Origin, Destination)
-Values ('1', 'Moving Will', '2/10/2021','10000', '2/13/2021', null, null, '1822 putter ct.', '1825 putter ct.');
-Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, UpdateStatus, PaymentStatus, Origin, Destination)
-Values ('2', 'Moving noah', '2/14/2021','10000', '2/17/2021', null, null, '540 westside br.', '1822 putter ct.');
+Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, UpdateStatus, PaymentStatus, Origin, Destination, ContractPrice, ConSuppliesCost, EstHours, FinHours, Mileage, Fuel, Insurance, WorkerPay, Food, Hotel)
+Values ('1', 'Moving Will', '2/10/2021','10000', '2/13/2021', null, null, '1822 putter ct.', '1825 putter ct.', '$1,400', '$350', '5', '7', '64', '275', 'Geico', '$120', 'Chicken', 'Marriot');
+Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, UpdateStatus, PaymentStatus, Origin, Destination, ContractPrice, ConSuppliesCost, EstHours, FinHours, Mileage, Fuel, Insurance, WorkerPay, Food, Hotel)
+Values ('2', 'Moving noah', '2/14/2021','10000', '2/17/2021', null, null, '540 westside br.', '1822 putter ct.', '$1,900', '$650', '15', '19', '200', '250', 'State Farm', '$230', 'Pizza', 'Hilton');
 Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, Origin,  UpdateStatus, PaymentStatus, AuctionHouse, AuctionEmployee, AuctionLot, AuctionDate, AuctionedYN)
 Values ('3', 'Auctioning for bob', '2/21/2021','5000', '2/24/2021', '1822 putter ct.', null, null, 'Auction House 1', 'bob', 'lot 1', '2/23/2021', '1');
 Insert into Service (CustomerID, ServiceName, ServiceDate, ServiceCost, CompletionDate, Origin,  UpdateStatus, PaymentStatus, AuctionHouse, AuctionEmployee, AuctionLot, AuctionDate, AuctionedYN)
@@ -230,5 +257,4 @@ Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
 Values (2, 'Bathroom', 1, 'Small', 5, 0);
 Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
 Values (2, 'Garage', 1, 'Massive', 2, 1);
-
 
