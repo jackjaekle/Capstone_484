@@ -1,3 +1,4 @@
+DROP table RoomItems
 DROP table Rooms
 DROP table MoveForm
 DROP table AuctionEvent
@@ -139,15 +140,23 @@ CREATE TABLE MoveForm(
 );
 
 CREATE TABLE Rooms(
-	RoomID int IDENTITY(1,1) NOT NULL,
+	RoomID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	MoveFormID int NOT NULL,
 	Name varchar(15) NOT NULL,
 	Floor varchar(10) NOT NULL,
 	TypeofBoxes varchar(10),
 	NumOfBoxes int,
 	Blankets BIT,
-	PRIMARY KEY(RoomID, MoveFormID),
 	FOREIGN KEY (MoveFormID) REFERENCES MoveForm(MoveFormID)
+);
+
+CREATE TABLE RoomItems(
+	RoomItemID int IDENTITY(1,1) PRIMARY KEY,
+	RoomID int NOT NULL,
+	Name varchar(100) NOT NULL,
+	Description varchar(200),
+	Action varchar(10),
+	FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID)
 );
 
 
@@ -258,3 +267,11 @@ Values (2, 'Bathroom', 1, 'Small', 5, 0);
 Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets)
 Values (2, 'Garage', 1, 'Massive', 2, 1);
 
+Insert into RoomItems(RoomID, Name, Description, Action)
+values(1, 'Lamp', 'Busted ass Lamp', 'Dispose');
+Insert into RoomItems(RoomID, Name, Action)
+values(1, 'Rug', 'Move');
+Insert into RoomItems(RoomID, Name, Description, Action)
+values(1, 'Couch', 'Very Large and bulky', 'Move');
+Insert into RoomItems(RoomID, Name, Description, Action)
+values(2, 'Bed', 'Creaky', 'Move');
