@@ -133,31 +133,7 @@ namespace Lab3
 
         protected void btnShowAll_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "Select r.Name, r.Floor, r.TypeofBoxes, r.NumOfBoxes, r.Blankets FROM Rooms r, Service e, MoveForm s WHERE " +
-                "s.ServiceID = e.ServiceID " +
-                "AND e.ServiceName = @name " +
-                "AND r.MoveFormID = s.MoveFormID";
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Parameters.AddWithValue("name", HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue));
-            sqlCommand.Connection = sqlConnect;
-            sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = sqlQuery;
-
-            sqlConnect.Open();
-            SqlDataReader queryResults = sqlCommand.ExecuteReader();
-            grdRoomInfo.DataSource = queryResults;
-            grdRoomInfo.DataBind();
-            sqlConnect.Close();
-
-            lblRoomInfo.Text = "Rooms Information for Service " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
-
-            fillRoomItemsDDLAllFloors();
-
-            btnSubmitItems.Enabled = true;
-            btnAddNewItem.Enabled = true;
-
+            showAllRooms();
         }
 
         protected void btnSubmitItems_Click(object sender, EventArgs e)
@@ -245,6 +221,94 @@ namespace Lab3
                 " AND r.Floor = '" + HttpUtility.HtmlEncode(ddlFloor.SelectedValue) + "'";
             ddlRooms.DataTextField = "Name";
             ddlRooms.DataValueField = "RoomID";
+        }
+
+        protected void showAllRooms()
+        {
+            String sqlQuery = "Select r.Name, r.Floor, r.TypeofBoxes, r.NumOfBoxes, r.Blankets FROM Rooms r, Service e, MoveForm s WHERE " +
+                            "s.ServiceID = e.ServiceID " +
+                            "AND e.ServiceName = @name " +
+                            "AND r.MoveFormID = s.MoveFormID";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Parameters.AddWithValue("name", HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue));
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+            grdRoomInfo.DataSource = queryResults;
+            grdRoomInfo.DataBind();
+            sqlConnect.Close();
+
+            lblRoomInfo.Text = "Rooms Information for Service " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
+
+            fillRoomItemsDDLAllFloors();
+
+            btnSubmitItems.Enabled = true;
+            btnAddNewItem.Enabled = true;
+        }
+
+        protected void btnAddNewRoom_Click(object sender, EventArgs e)
+        {
+
+            String sqlQuery3 = "Select m.MoveFormID FROM MoveForm m, Service s WHERE m.ServiceID = s.ServiceID AND s.ServiceName = @name";
+            SqlConnection sqlConnect3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            String serviceName = HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
+
+            SqlCommand sqlCommand3 = new SqlCommand();
+            sqlCommand3.Parameters.AddWithValue("name", serviceName);
+            sqlCommand3.Connection = sqlConnect3;
+            sqlCommand3.CommandType = CommandType.Text;
+            sqlCommand3.CommandText = sqlQuery3;
+            int moveFormID;
+            sqlConnect3.Open();
+
+            moveFormID = Convert.ToInt32(sqlCommand3.ExecuteScalar());
+
+            sqlConnect3.Close();
+
+            String roomName = HttpUtility.HtmlEncode(txtBoxRoomName.Text);
+            int roomFloor = int.Parse(HttpUtility.HtmlEncode(txtBoxRoomFloor.Text));
+            String typeOfBoxes = HttpUtility.HtmlEncode(txtBoxBoxType.Text);
+            int numOfBoxes = int.Parse(HttpUtility.HtmlEncode(txtBoxBoxNumber.Text));
+            int blankets = 0;
+
+            if (chkBoxBlankets.Checked)
+                blankets = 1;
+
+            String sqlQuery = "Insert into Rooms(MoveFormID, Name, Floor, TypeofBoxes, NumOfBoxes, Blankets) "+
+                                "Values(@moveFormID, @roomName, @roomFloor, @boxType, @numOfBoxes, @blankets);";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Parameters.AddWithValue("moveFormID", moveFormID);
+            sqlCommand.Parameters.AddWithValue("roomName", roomName);
+            sqlCommand.Parameters.AddWithValue("roomFloor", roomFloor);
+            sqlCommand.Parameters.AddWithValue("boxType", typeOfBoxes);
+            sqlCommand.Parameters.AddWithValue("numOfboxes", numOfBoxes);
+            sqlCommand.Parameters.AddWithValue("blankets", blankets);
+
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+            queryResults.Close();//closes connection
+            sqlConnect.Close();
+
+            txtBoxRoomName.Text = String.Empty;
+            txtBoxRoomFloor.Text = String.Empty;
+            txtBoxBoxType.Text = String.Empty;
+            txtBoxBoxNumber.Text = String.Empty;
+            chkBoxBlankets.Checked = false;
+
+            showAllRooms();
         }
     }
 }

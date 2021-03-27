@@ -18,8 +18,33 @@
     <asp:Button ID="btnShowAll" runat="server" Text="Show all Floors" OnClick="btnShowAll_Click" CausesValidation="false" Enabled="false"/>
 
     <br />
+    <br />
+    <asp:Label ID="lblRoomName" runat="server" Text="Room Name: "></asp:Label>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtBoxRoomName" ErrorMessage="*" ForeColor="Red" ValidationGroup="valGroup1"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtBoxRoomName" runat="server"></asp:TextBox>
 
+    <asp:Label ID="lblRoomFloor" runat="server" Text="Floor: "></asp:Label>
+    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Integer Only" ControlToValidate="txtBoxRoomFloor" ValidationGroup="valGroup1" Operator="DataTypeCheck" Type="Integer" ForeColor="Red" ></asp:CompareValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtBoxRoomFloor" ErrorMessage="*" ForeColor="Red" ValidationGroup="valGroup1"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtBoxRoomFloor" runat="server"></asp:TextBox>
 
+    <asp:Label ID="lblBoxType" runat="server" Text="What type of boxes?"></asp:Label>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtBoxBoxType" ErrorMessage="*" ForeColor="Red" ValidationGroup="valGroup1"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtBoxBoxType" runat="server"></asp:TextBox>
+
+    <br />
+
+    <asp:Label ID="lblBoxNumber" runat="server" Text="How many boxes?"></asp:Label>
+     <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Integer Only" ControlToValidate="txtBoxBoxNumber" ValidationGroup="valGroup1" Operator="DataTypeCheck" Type="Integer" ForeColor="Red" ></asp:CompareValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtBoxBoxNumber" ErrorMessage="*" ForeColor="Red" ValidationGroup="valGroup1"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtBoxBoxNumber" runat="server"></asp:TextBox>
+
+    <asp:Label ID="lblBlankets" runat="server" Text="Blankets? "></asp:Label>
+    <asp:CheckBox ID="chkBoxBlankets" runat="server" />
+
+    <asp:Button ID="btnAddNewRoom" runat="server" Text="Add New Room" OnClick="btnAddNewRoom_Click" ValidationGroup="valGroup1" />
+
+    <br />
 
     <fieldset>
         <legend>
