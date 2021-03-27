@@ -17,6 +17,10 @@
     <asp:Button ID="btnShowFloor" runat="server" Text="Sort by floor" OnClick="btnShowFloor_Click" CausesValidation="false" Enabled="false"/>
     <asp:Button ID="btnShowAll" runat="server" Text="Show all Floors" OnClick="btnShowAll_Click" CausesValidation="false" Enabled="false"/>
 
+    <br />
+
+
+
     <fieldset>
         <legend>
             <asp:Label ID="lblRoomInfo" runat="server" Text="Rooms Information"></asp:Label>

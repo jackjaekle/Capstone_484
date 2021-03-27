@@ -51,7 +51,8 @@ namespace Lab3
                 "AND r.MoveFormID = e.MoveFormID";
             String sqlQuery3 = "SELECT DISTINCT r.Floor from Rooms r, MoveForm e, Service s WHERE " +
                 "s.ServiceID = e.ServiceID " +
-                "AND s.ServiceName = @name";
+                "AND s.ServiceName = @name " + 
+                "AND r.MoveFormID = e.MoveFormID";
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlCommand sqlCommand = new SqlCommand();
@@ -94,8 +95,11 @@ namespace Lab3
 
             lblMoveForm.Text = "MoveForm information for Service " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
             lblRoomInfo.Text = "Rooms Information for Service " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
+
             btnShowFloor.Enabled = true;
             btnShowAll.Enabled = true;
+            btnSubmitItems.Enabled = false;
+            btnAddNewItem.Enabled = false;
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -149,7 +153,7 @@ namespace Lab3
 
             lblRoomInfo.Text = "Rooms Information for Service " + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue);
 
-            fillRoomItemsDDL();
+            fillRoomItemsDDLAllFloors();
 
             btnSubmitItems.Enabled = true;
             btnAddNewItem.Enabled = true;
@@ -221,13 +225,24 @@ namespace Lab3
             sqlConnect.Close();
         }
 
-        protected void fillRoomItemsDDL()
+        protected void fillRoomItemsDDLAllFloors()
         {
             //Not a parameterized query bc it doesn't liek to rerun with the same name when you change the floor you're looking at
             //Shouldn't matter bc the only input is from ddl's anyway, encoded too.
             dtaSrcRoomItemsID.SelectCommand = "Select r.Name, r.RoomID FROM Rooms r, Service e, MoveForm s WHERE s.ServiceID = e.ServiceID" +
                 " AND e.ServiceName = '" + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue) +
                 "' AND r.MoveFormID = s.MoveFormID";
+            ddlRooms.DataTextField = "Name";
+            ddlRooms.DataValueField = "RoomID";
+        }
+        protected void fillRoomItemsDDL()
+        {
+            //Not a parameterized query bc it doesn't liek to rerun with the same name when you change the floor you're looking at 
+            //Shouldn't matter bc the only input is from ddl's anyway, encoded too.
+            dtaSrcRoomItemsID.SelectCommand = "Select r.Name, r.RoomID FROM Rooms r, Service e, MoveForm s WHERE s.ServiceID = e.ServiceID" +
+                " AND e.ServiceName = '" + HttpUtility.HtmlEncode(ddlMoveForm.SelectedValue) +
+                "' AND r.MoveFormID = s.MoveFormID" +
+                " AND r.Floor = '" + HttpUtility.HtmlEncode(ddlFloor.SelectedValue) + "'";
             ddlRooms.DataTextField = "Name";
             ddlRooms.DataValueField = "RoomID";
         }
