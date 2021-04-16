@@ -1,0 +1,463 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E4BC8B8-A9FC-49BC-BBF8-924CE5B6421E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lab3</RootNamespace>
+    <AssemblyName>Lab3</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddCustByPhone.aspx.cs">
+      <DependentUpon>AddCustByPhone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCustByPhone.aspx.designer.cs">
+      <DependentUpon>AddCustByPhone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddServiceByPhone.aspx.cs">
+      <DependentUpon>AddServiceByPhone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddServiceByPhone.aspx.designer.cs">
+      <DependentUpon>AddServiceByPhone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuctionPickUpForm.aspx.cs">
+      <DependentUpon>AuctionPickUpForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionPickUpForm.aspx.designer.cs">
+      <DependentUpon>AuctionPickUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustHistoryPage.aspx.cs">
+      <DependentUpon>CustHistoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustHistoryPage.aspx.designer.cs">
+      <DependentUpon>CustHistoryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerMainPage.aspx.cs">
+      <DependentUpon>CustomerMainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerMainPage.aspx.designer.cs">
+      <DependentUpon>CustomerMainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPortal.aspx.cs">
+      <DependentUpon>CustomerPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPortal.aspx.designer.cs">
+      <DependentUpon>CustomerPortal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustServReq.aspx.cs">
+      <DependentUpon>CustServReq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustServReq.aspx.designer.cs">
+      <DependentUpon>CustServReq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DriverPage.aspx.cs">
+      <DependentUpon>DriverPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DriverPage.aspx.designer.cs">
+      <DependentUpon>DriverPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentManagement.aspx.cs">
+      <DependentUpon>EquipmentManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EquipmentManagement.aspx.designer.cs">
+      <DependentUpon>EquipmentManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EstimateWorkSheet.aspx.cs">
+      <DependentUpon>EstimateWorkSheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EstimateWorkSheet.aspx.designer.cs">
+      <DependentUpon>EstimateWorkSheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LabMasterPage.Master.cs">
+      <DependentUpon>LabMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LabMasterPage.Master.designer.cs">
+      <DependentUpon>LabMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LogAuctionInfo.aspx.cs">
+      <DependentUpon>LogAuctionInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogAuctionInfo.aspx.designer.cs">
+      <DependentUpon>LogAuctionInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogAvailableAuctions.aspx.cs">
+      <DependentUpon>LogAvailableAuctions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogAvailableAuctions.aspx.designer.cs">
+      <DependentUpon>LogAvailableAuctions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogCreateNewAuction.aspx.cs">
+      <DependentUpon>LogCreateNewAuction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogCreateNewAuction.aspx.designer.cs">
+      <DependentUpon>LogCreateNewAuction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogCustomerInfo.aspx.cs">
+      <DependentUpon>LogCustomerInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogCustomerInfo.aspx.designer.cs">
+      <DependentUpon>LogCustomerInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogCustServCreation.aspx.cs">
+      <DependentUpon>LogCustServCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogCustServCreation.aspx.designer.cs">
+      <DependentUpon>LogCustServCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogDropDownListings.aspx.cs">
+      <DependentUpon>LogDropDownListings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogDropDownListings.aspx.designer.cs">
+      <DependentUpon>LogDropDownListings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogEmployeeInfo.aspx.cs">
+      <DependentUpon>LogEmployeeInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogEmployeeInfo.aspx.designer.cs">
+      <DependentUpon>LogEmployeeInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogEquipmentRent.aspx.cs">
+      <DependentUpon>LogEquipmentRent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogEquipmentRent.aspx.designer.cs">
+      <DependentUpon>LogEquipmentRent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogEquipmentRentInfo.aspx.cs">
+      <DependentUpon>LogEquipmentRentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogEquipmentRentInfo.aspx.designer.cs">
+      <DependentUpon>LogEquipmentRentInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogEquipmentStatus.aspx.cs">
+      <DependentUpon>LogEquipmentStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogEquipmentStatus.aspx.designer.cs">
+      <DependentUpon>LogEquipmentStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedinMainPage.aspx.cs">
+      <DependentUpon>LoggedinMainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoggedinMainPage.aspx.designer.cs">
+      <DependentUpon>LoggedinMainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedinMaster.Master.cs">
+      <DependentUpon>LoggedinMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoggedinMaster.Master.designer.cs">
+      <DependentUpon>LoggedinMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedNotes.aspx.cs">
+      <DependentUpon>LoggedNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoggedNotes.aspx.designer.cs">
+      <DependentUpon>LoggedNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogInDepth.aspx.cs">
+      <DependentUpon>LogInDepth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogInDepth.aspx.designer.cs">
+      <DependentUpon>LogInDepth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogInvInfo.aspx.cs">
+      <DependentUpon>LogInvInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogInvInfo.aspx.designer.cs">
+      <DependentUpon>LogInvInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogInvToAuction.aspx.cs">
+      <DependentUpon>LogInvToAuction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogInvToAuction.aspx.designer.cs">
+      <DependentUpon>LogInvToAuction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogMoveFormInfo.aspx.cs">
+      <DependentUpon>LogMoveFormInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogMoveFormInfo.aspx.designer.cs">
+      <DependentUpon>LogMoveFormInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogNewCustomer.aspx.cs">
+      <DependentUpon>LogNewCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogNewCustomer.aspx.designer.cs">
+      <DependentUpon>LogNewCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogNewEmployee.aspx.cs">
+      <DependentUpon>LogNewEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogNewEmployee.aspx.designer.cs">
+      <DependentUpon>LogNewEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogNewEquipment.aspx.cs">
+      <DependentUpon>LogNewEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogNewEquipment.aspx.designer.cs">
+      <DependentUpon>LogNewEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogNewItem.aspx.cs">
+      <DependentUpon>LogNewItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogNewItem.aspx.designer.cs">
+      <DependentUpon>LogNewItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogNewService.aspx.cs">
+      <DependentUpon>LogNewService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogNewService.aspx.designer.cs">
+      <DependentUpon>LogNewService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogNewWorkflow.aspx.cs">
+      <DependentUpon>LogNewWorkflow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogNewWorkflow.aspx.designer.cs">
+      <DependentUpon>LogNewWorkflow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogReport.aspx.cs">
+      <DependentUpon>LogReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogReport.aspx.designer.cs">
+      <DependentUpon>LogReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogServiceInfo.aspx.cs">
+      <DependentUpon>LogServiceInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogServiceInfo.aspx.designer.cs">
+      <DependentUpon>LogServiceInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogServiceRequest.aspx.cs">
+      <DependentUpon>LogServiceRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogServiceRequest.aspx.designer.cs">
+      <DependentUpon>LogServiceRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogServiceTicketEdit.aspx.cs">
+      <DependentUpon>LogServiceTicketEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogServiceTicketEdit.aspx.designer.cs">
+      <DependentUpon>LogServiceTicketEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogWorkFlowInfo.aspx.cs">
+      <DependentUpon>LogWorkFlowInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogWorkFlowInfo.aspx.designer.cs">
+      <DependentUpon>LogWorkFlowInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainPageNoLogin.aspx.cs">
+      <DependentUpon>MainPageNoLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainPageNoLogin.aspx.designer.cs">
+      <DependentUpon>MainPageNoLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\PasswordHash.cs" />
+    <Compile Include="MoveSchedule.aspx.cs">
+      <DependentUpon>MoveSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveSchedule.aspx.designer.cs">
+      <DependentUpon>MoveSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LoggedCustServAuction.aspx.cs">
+      <DependentUpon>LoggedCustServAuction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoggedCustServAuction.aspx.designer.cs">
+      <DependentUpon>LoggedCustServAuction.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddCustByPhone.aspx" />
+    <Content Include="AddServiceByPhone.aspx" />
+    <Content Include="AuctionPickUpForm.aspx" />
+    <Content Include="CustHistoryPage.aspx" />
+    <Content Include="CustomerMainPage.aspx" />
+    <Content Include="CustomerPortal.aspx" />
+    <Content Include="CustServReq.aspx" />
+    <Content Include="DriverPage.aspx" />
+    <Content Include="EquipmentManagement.aspx" />
+    <Content Include="EstimateWorkSheet.aspx" />
+    <Content Include="LogAuctionInfo.aspx" />
+    <Content Include="LogAvailableAuctions.aspx" />
+    <Content Include="LogCreateNewAuction.aspx" />
+    <Content Include="LogCustomerInfo.aspx" />
+    <Content Include="LogCustServCreation.aspx" />
+    <Content Include="LogDropDownListings.aspx" />
+    <Content Include="LogEmployeeInfo.aspx" />
+    <Content Include="LogEquipmentRent.aspx" />
+    <Content Include="LogEquipmentRentInfo.aspx" />
+    <Content Include="LogEquipmentStatus.aspx" />
+    <Content Include="LoggedinMainPage.aspx" />
+    <Content Include="LoggedNotes.aspx" />
+    <Content Include="LogInDepth.aspx" />
+    <Content Include="LogInvInfo.aspx" />
+    <Content Include="LogInvToAuction.aspx" />
+    <Content Include="LogMoveFormInfo.aspx" />
+    <Content Include="LogNewCustomer.aspx" />
+    <Content Include="LogNewEmployee.aspx" />
+    <Content Include="LogNewEquipment.aspx" />
+    <Content Include="LogNewItem.aspx" />
+    <Content Include="LogNewService.aspx" />
+    <Content Include="LogNewWorkflow.aspx" />
+    <Content Include="LogReport.aspx" />
+    <Content Include="LogServiceInfo.aspx" />
+    <Content Include="LogServiceRequest.aspx" />
+    <Content Include="LogServiceTicketEdit.aspx" />
+    <Content Include="LogWorkFlowInfo.aspx" />
+    <Content Include="MainPageNoLogin.aspx" />
+    <Content Include="LoggedCustServAuction.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LabMasterPage.Master" />
+    <Content Include="LoggedinMaster.Master" />
+    <None Include="packages.config" />
+    <Content Include="MoveSchedule.aspx" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55750</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55750/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
