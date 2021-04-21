@@ -11,71 +11,71 @@ namespace Lab3
 {
 
 
-    public partial class LogReport
+    public partial class LogServiceRequest
     {
 
         /// <summary>
-        /// Calendar1 control.
+        /// MovingRadio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.RadioButton MovingRadio;
 
         /// <summary>
-        /// All control.
+        /// AuctionRadio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button All;
+        protected global::System.Web.UI.WebControls.RadioButton AuctionRadio;
 
         /// <summary>
-        /// Table1 control.
+        /// custList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
+        protected global::System.Web.UI.WebControls.ListBox custList;
 
         /// <summary>
-        /// Label1 control.
+        /// UserInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox UserInput;
 
         /// <summary>
-        /// Label2 control.
+        /// UserInputReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UserInputReq;
 
         /// <summary>
-        /// box1 control.
+        /// servCust control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label box1;
+        protected global::System.Web.UI.WebControls.Button servCust;
 
         /// <summary>
-        /// box2 control.
+        /// matchCheck control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label box2;
+        protected global::System.Web.UI.WebControls.Label matchCheck;
 
         /// <summary>
         /// Return control.

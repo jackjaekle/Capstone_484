@@ -86,24 +86,24 @@ namespace Lab2
                 MissingInput.Text = string.Format("");
 
 
-                String sqlQuery = "Select * from Customer";
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                String sqlQuery3 = "Select * from Customer";
+                SqlConnection sqlConnect3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnect;
-                sqlCommand.CommandType = CommandType.Text;
-                sqlCommand.CommandText = sqlQuery;
+                SqlCommand sqlCommand3 = new SqlCommand();
+                sqlCommand3.Connection = sqlConnect3;
+                sqlCommand3.CommandType = CommandType.Text;
+                sqlCommand3.CommandText = sqlQuery3;
 
-                sqlConnect.Open();
-                SqlDataReader queryResults = sqlCommand.ExecuteReader();
+                sqlConnect3.Open();
+                SqlDataReader queryResults3 = sqlCommand3.ExecuteReader();
                 string FirstLast = HttpUtility.HtmlEncode(CustomerFirstName.Text) + " " + HttpUtility.HtmlEncode(CustomerLastName.Text);
                 String userInput = FirstLast;
                 String dbNames = "";
                 Boolean duplicate = false;
 
-                while (queryResults.Read())
+                while (queryResults3.Read())
                 {
-                    dbNames = (queryResults["CustomerName"].ToString());
+                    dbNames = (queryResults3["CustomerName"].ToString());
                     if (dbNames == userInput)
                     {
                         duplicate = true;
@@ -111,13 +111,26 @@ namespace Lab2
                     }
                 }
 
-                queryResults.Close();//closes connection
-                sqlConnect.Close();
+                queryResults3.Close();//closes connection
+                sqlConnect3.Close();
 
 
 
                 if (duplicate == false)
                 {
+
+
+
+                    String serviceType2 = "TestFailed";
+
+                    if (MovingRadio.Checked)
+                    {
+                        serviceType2 = "Moving";
+                    }
+                    if (!MovingRadio.Checked)
+                    {
+                        serviceType2 = "Auction";
+                    }
 
 
                     String contactType = HttpUtility.HtmlEncode(DDL2.Text);
@@ -127,42 +140,173 @@ namespace Lab2
                         contactType = HttpUtility.HtmlEncode(otherBox.Text);
                     }
                     
-                    String sqlQuery1 = "Insert into Customer (CustomerName, CustomerPhone, CustomerEmail, CustomerPhoneType, CustomerFoundUsBy, CustomerContactType, ServicedYN, CustomerCurrentAddress, descriptionOfNeeds ) Values (@CustomerName, @CustomerPhone, @CustomerEmail" + ", '" + DDL3.Text + "'," +"@CustomerHear, @ContactType, @n, @cAddress, @Needs)";
-                    SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    String sqlQuery11 = "Insert into Customer (CustomerName, CustomerPhone, CustomerEmail, CustomerPhoneType, CustomerFoundUsBy, CustomerContactType, ServicedYN, CustomerCurrentAddress, descriptionOfNeeds, typeOfService, DateOfServiceRequest, Servicedate ) Values (@CustomerName, @CustomerPhone, @CustomerEmail" + ", '" + DDL3.Text + "'," + "@CustomerHear, @ContactType, @n, @cAddress, @Needs, @servType, @SDate, @reqDate)";
+                    SqlConnection sqlConnect11 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-                    SqlCommand sqlCommand1 = new SqlCommand();
-                    sqlCommand1.Parameters.AddWithValue("CustomerName",FirstLast);
-                    sqlCommand1.Parameters.AddWithValue("CustomerPhone", HttpUtility.HtmlEncode(CustomerPhone.Text));
-                    sqlCommand1.Parameters.AddWithValue("CustomerEmail", HttpUtility.HtmlEncode(CustomerEmail.Text));
-                    sqlCommand1.Parameters.AddWithValue("CustomerHear", HttpUtility.HtmlEncode(customerHear.Text));
-                    sqlCommand1.Parameters.AddWithValue("ContactType", contactType);
-                    sqlCommand1.Parameters.AddWithValue("n", "0");
-                    sqlCommand1.Parameters.AddWithValue("cAddress", HttpUtility.HtmlEncode(CustomerAddress.Text));
-                    sqlCommand1.Parameters.AddWithValue("Needs", HttpUtility.HtmlEncode(custNeeds.Text));
+                    SqlCommand sqlCommand11 = new SqlCommand();
+                    sqlCommand11.Parameters.AddWithValue("CustomerName",FirstLast);
+                    sqlCommand11.Parameters.AddWithValue("CustomerPhone", HttpUtility.HtmlEncode(CustomerPhone.Text));
+                    sqlCommand11.Parameters.AddWithValue("CustomerEmail", HttpUtility.HtmlEncode(CustomerEmail.Text));
+                    sqlCommand11.Parameters.AddWithValue("CustomerHear", HttpUtility.HtmlEncode(customerHear.Text));
+                    sqlCommand11.Parameters.AddWithValue("ContactType", contactType);
+                    sqlCommand11.Parameters.AddWithValue("n", "0");
+                    sqlCommand11.Parameters.AddWithValue("cAddress", HttpUtility.HtmlEncode(CustomerAddress.Text));
+                    sqlCommand11.Parameters.AddWithValue("Needs", HttpUtility.HtmlEncode(custNeeds.Text));
 
-
-
-                    sqlCommand1.Connection = sqlConnect1;
-                    sqlCommand1.CommandType = CommandType.Text;
-                    sqlCommand1.CommandText = sqlQuery1;
-
-                    sqlConnect1.Open();
-                    SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
+                    sqlCommand11.Parameters.AddWithValue("SDate", DateTime.UtcNow);
+                    sqlCommand11.Parameters.AddWithValue("reqDate", HttpUtility.HtmlEncode(reqDate.Text));
+                    sqlCommand11.Parameters.AddWithValue("servType", serviceType2);
 
 
 
-                    queryResults1.Close();//closes connection
-                    sqlConnect1.Close();
-                    TestLabel.Text = string.Format("Successfully inserted into database.");
+
+
+                    sqlCommand11.Connection = sqlConnect11;
+                    sqlCommand11.CommandType = CommandType.Text;
+                    sqlCommand11.CommandText = sqlQuery11;
+
+                    sqlConnect11.Open();
+                    SqlDataReader queryResults11 = sqlCommand11.ExecuteReader();
+
+
+
+                    queryResults11.Close();//closes connection
+                    sqlConnect11.Close();
+                    TestLabel1.Text = string.Format("Successfully inserted into database.");
                 }
                 else
                 {
-                    TestLabel.Text = string.Format("A User with this name already exists.");
+                    TestLabel1.Text = string.Format("A User with this name already exists.");
                 }
 
 
 
             }
+
+            String customerEmail = HttpUtility.HtmlEncode(Session["UserName"].ToString());
+            String CustomerID = "";
+
+            String sqlQuery1 = "Select CustomerID FROM Customer WHERE CustomerEmail = @email";
+            SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            SqlCommand sqlCommand1 = new SqlCommand();
+            sqlCommand1.Parameters.AddWithValue("email", customerEmail);
+            sqlCommand1.Connection = sqlConnect1;
+            sqlCommand1.CommandType = CommandType.Text;
+            sqlCommand1.CommandText = sqlQuery1;
+            sqlConnect1.Open();
+            SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
+            while (queryResults1.Read())
+            {
+                CustomerID = (queryResults1["CustomerID"].ToString());
+            }
+
+
+
+
+            queryResults1.Close();
+            sqlConnect1.Close();
+
+
+            String serviceType = "TestFailed";
+
+            if (MovingRadio.Checked)
+            {
+                serviceType = "Moving";
+            }
+            if (!MovingRadio.Checked)
+            {
+                serviceType = "Auction";
+            }
+            String sqlQuery = "Update Customer Set typeOfService = @servType,  ServiceDate = @reqDate,  descriptionOfNeeds = @descNeeds, CustomerCurrentAddress = @servAdd, DateOfServiceRequest = @SDate, ServicedYN = @0 WHERE CustomerID = @custID";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Parameters.AddWithValue("servType", serviceType);
+            sqlCommand.Parameters.AddWithValue("reqDate", HttpUtility.HtmlEncode(reqDate.Text));
+            sqlCommand.Parameters.AddWithValue("descNeeds", HttpUtility.HtmlEncode(descOfNeeds.Text));
+            sqlCommand.Parameters.AddWithValue("custID", CustomerID);
+            sqlCommand.Parameters.AddWithValue("servAdd", HttpUtility.HtmlEncode(servAddress.Text));
+            sqlCommand.Parameters.AddWithValue("SDate", DateTime.UtcNow);
+            sqlCommand.Parameters.AddWithValue("0", '0');
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+
+
+            MissingInput.Text = "Service Request Sent";
+
+            queryResults.Close();//closes connection
+            sqlConnect.Close();
+        }
+        protected void MovingRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            AuctionRadio.Checked = false;
+        }
+
+        protected void AuctionRadio_CheckedChanged(object sender, EventArgs e)
+        {
+
+            MovingRadio.Checked = false;
+
+        }
+     
+
+        protected void Upload_Click(object sender, EventArgs e)
+        {
+
+            String customerEmail = HttpUtility.HtmlEncode(Session["UserName"].ToString());
+            String CustomerID = "";
+
+            String sqlQuery1 = "Select CustomerID FROM Customer WHERE CustomerEmail = @email";
+            SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            SqlCommand sqlCommand1 = new SqlCommand();
+            sqlCommand1.Parameters.AddWithValue("email", customerEmail);
+            sqlCommand1.Connection = sqlConnect1;
+            sqlCommand1.CommandType = CommandType.Text;
+            sqlCommand1.CommandText = sqlQuery1;
+            sqlConnect1.Open();
+            SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
+            while (queryResults1.Read())
+            {
+                CustomerID = (queryResults1["CustomerID"].ToString());
+            }
+            queryResults1.Close();
+
+
+
+
+
+            if (uploadFiles.HasFiles)
+            {
+                foreach (HttpPostedFile uploadedFile in uploadFiles.PostedFiles)
+                {
+                    uploadedFile.SaveAs(Server.MapPath("/images/" + uploadedFile.FileName));
+
+
+                    String sqlQuery = "Insert into Images values(@imgName, @custID)";
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Parameters.AddWithValue("imgName", uploadedFile.FileName);
+                    sqlCommand.Parameters.AddWithValue("custID", CustomerID);
+
+                    sqlCommand.Connection = sqlConnect;
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = sqlQuery;
+                    sqlConnect.Open();
+                    SqlDataReader queryResults = sqlCommand.ExecuteReader();
+                    queryResults.Close();
+                    sqlConnect.Close();
+
+                }
+            }
+
         }
 
     }

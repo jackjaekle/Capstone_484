@@ -2,10 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <title>Noah George, William Kilpatrick</title>
-
+    /////////real page
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<!--Noah  George, William Kilpatrick, Henry Requeno-Villeda  2/15/2021 -->
+    <!--Noah  George, William Kilpatrick, Henry Requeno-Villeda  2/15/2021 -->
     <div style="height: 551px">
             New Employee Insertion<br /><%--the page for people who are logged in--%>
             <br />
@@ -49,6 +49,11 @@
 			<asp:TextBox ID="EmployeeAddress" runat="server"></asp:TextBox> <%--  Impliments Validators--%>
             <asp:RequiredFieldValidator ID ="EmpAddressReq" ControlToValidate ="EmployeeAddress" Text ="(Required)" Display ="Dynamic" runat ="server" ValidationGroup ="Submit"/>
             <asp:CompareValidator ID ="empAddressVali" ControlToValidate ="EmployeeAddress" Text ="Needs to be a String" Operator ="DataTypeCheck" Type ="String" runat ="server" ValidationGroup ="Submit"/>
+            
+            <br />
+            Employee Rank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:DropDownList ID="rankDDL" runat="server">
+            </asp:DropDownList>
             
             <br />
             <%--Creates A list box to display output--%>

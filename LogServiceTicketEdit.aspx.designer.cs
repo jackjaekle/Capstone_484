@@ -11,179 +11,179 @@ namespace Lab2
 {
 
 
-    public partial class LogNewEmployee
+    public partial class LogServiceTicketEdit
     {
 
         /// <summary>
-        /// Label1 control.
+        /// serviceName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText serviceName;
 
         /// <summary>
-        /// EmployeeFirstName control.
+        /// startDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmployeeFirstName;
+        protected global::System.Web.UI.WebControls.TextBox startDate;
 
         /// <summary>
-        /// empFirstReq control.
+        /// serviceReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator empFirstReq;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator serviceReq;
 
         /// <summary>
-        /// empFirstVali control.
+        /// serviceVali control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator empFirstVali;
+        protected global::System.Web.UI.WebControls.CompareValidator serviceVali;
 
         /// <summary>
-        /// EmployeeLastName control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmployeeLastName;
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// empLastReq control.
+        /// warn1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator empLastReq;
+        protected global::System.Web.UI.WebControls.Label warn1;
 
         /// <summary>
-        /// empLastVali control.
+        /// completionDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator empLastVali;
+        protected global::System.Web.UI.WebControls.TextBox completionDate;
 
         /// <summary>
-        /// Label2 control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// EmployeePhone control.
+        /// CompareValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmployeePhone;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
 
         /// <summary>
-        /// empPhoneReq control.
+        /// Label7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator empPhoneReq;
+        protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// empPhoneVali control.
+        /// warn2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator empPhoneVali;
+        protected global::System.Web.UI.WebControls.Label warn2;
 
         /// <summary>
-        /// Label3 control.
+        /// serviceCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.TextBox serviceCost;
 
         /// <summary>
-        /// EmployeeEmail control.
+        /// serviceCostReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmployeeEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator serviceCostReq;
 
         /// <summary>
-        /// empEmailReq control.
+        /// updateStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator empEmailReq;
+        protected global::System.Web.UI.WebControls.DropDownList updateStatus;
 
         /// <summary>
-        /// empEmailVali control.
+        /// paymentStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator empEmailVali;
+        protected global::System.Web.UI.WebControls.DropDownList paymentStatus;
 
         /// <summary>
-        /// Label5 control.
+        /// origin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.TextBox origin;
 
         /// <summary>
-        /// Password control.
+        /// originReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator originReq;
 
         /// <summary>
-        /// empPasswordReq control.
+        /// destination control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator empPasswordReq;
+        protected global::System.Web.UI.WebControls.TextBox destination;
 
         /// <summary>
-        /// empPasswordVali control.
+        /// destinationReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator empPasswordVali;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator destinationReq;
 
         /// <summary>
         /// Label4 control.
@@ -195,40 +195,85 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// EmployeeAddress control.
+        /// equipAvail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmployeeAddress;
+        protected global::System.Web.UI.WebControls.DropDownList equipAvail;
 
         /// <summary>
-        /// EmpAddressReq control.
+        /// equipButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmpAddressReq;
+        protected global::System.Web.UI.WebControls.Button equipButton;
 
         /// <summary>
-        /// empAddressVali control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator empAddressVali;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// rankDDL control.
+        /// equipList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList rankDDL;
+        protected global::System.Web.UI.WebControls.ListBox equipList;
+
+        /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+
+        /// <summary>
+        /// empAvail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList empAvail;
+
+        /// <summary>
+        /// empButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button empButton;
+
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// empList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox empList;
 
         /// <summary>
         /// Return control.
@@ -249,39 +294,57 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Button Submit;
 
         /// <summary>
-        /// MissingInput control.
+        /// Submit2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MissingInput;
+        protected global::System.Web.UI.WebControls.Button Submit2;
 
         /// <summary>
-        /// PopulateButton control.
+        /// noteStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PopulateButton;
+        protected global::System.Web.UI.WebControls.Label noteStatus;
 
         /// <summary>
-        /// ClearButton control.
+        /// yesButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ClearButton;
+        protected global::System.Web.UI.WebControls.Button yesButton;
 
         /// <summary>
-        /// TestLabel control.
+        /// noButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TestLabel;
+        protected global::System.Web.UI.WebControls.Button noButton;
+
+        /// <summary>
+        /// DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL;
+
+        /// <summary>
+        /// svcNm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label svcNm;
     }
 }

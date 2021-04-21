@@ -12,8 +12,17 @@ namespace Lab2
 {
     public partial class LogNewEmployee : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (rankDDL.Items.Count == 0)
+            {
+                rankDDL.Items.Clear();
+                rankDDL.Items.Add("Employee");
+                rankDDL.Items.Add("Driver");
+                rankDDL.Items.Add("Mover");
+                rankDDL.Items.Add("Admin");
+            }
 
         }
 
@@ -72,11 +81,11 @@ namespace Lab2
                 String dbEmails = "";
                 Boolean duplicate = false;
 
-                    while (queryResults.Read())
+                while (queryResults.Read())
                 {
                     dbNames = (queryResults["EmployeeName"].ToString());
                     dbEmails = (queryResults["EmployeeEmail"].ToString());
-                        if (dbNames == userInput || dbEmails == userEmailInput)
+                    if (dbNames == userInput || dbEmails == userEmailInput)
                     {
                         duplicate = true;
 
@@ -89,7 +98,7 @@ namespace Lab2
 
                 if (duplicate == false)
                 {
-                    String sqlQuery1 = "Insert into Employee (EmployeeName, EmployeePhone, EmployeeEmail, EmployeeAddress) Values (@EmployeeName, @EmployeePhone, @EmployeeEmail, @EmployeeAddress)";
+                    String sqlQuery1 = "Insert into Employee (EmployeeName, EmployeePhone, EmployeeEmail, EmployeeAddress, EmployeeStatus, EmployeeType) Values (@EmployeeName, @EmployeePhone, @EmployeeEmail, @EmployeeAddress, 'Hired', @EmployeeType)";
                     SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                     SqlCommand sqlCommand1 = new SqlCommand();
@@ -97,6 +106,24 @@ namespace Lab2
                     sqlCommand1.Parameters.AddWithValue("EmployeePhone", HttpUtility.HtmlEncode(EmployeePhone.Text));
                     sqlCommand1.Parameters.AddWithValue("EmployeeEmail", HttpUtility.HtmlEncode(EmployeeEmail.Text));
                     sqlCommand1.Parameters.AddWithValue("EmployeeAddress", HttpUtility.HtmlEncode(EmployeeAddress.Text));
+                    String employeeType = "";
+                    if (rankDDL.Text.Equals("Employee"))
+                    {
+                        employeeType = "E";
+                    }
+                    if (rankDDL.Text.Equals("Mover"))
+                    {
+                        employeeType = "M";
+                    }
+                    if (rankDDL.Text.Equals("Driver"))
+                    {
+                        employeeType = "D";
+                    }
+                    if (rankDDL.Text.Equals("Admin"))
+                    {
+                        employeeType = "A";
+                    }
+                    sqlCommand1.Parameters.AddWithValue("EmployeeType", HttpUtility.HtmlEncode(employeeType));
 
 
 
@@ -124,7 +151,7 @@ namespace Lab2
                     sqlCommand4.Connection = sqlConnect4;
                     sqlCommand4.CommandType = CommandType.Text;
                     sqlCommand4.CommandText = sqlQuery4;
-                   
+
                     sqlConnect4.Open();
                     SqlDataReader queryResults4 = sqlCommand4.ExecuteReader();
 
