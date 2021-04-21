@@ -15,7 +15,7 @@ namespace Lab3
         protected void Page_Load(object sender, EventArgs e)
         {
             String customerName = HttpUtility.HtmlEncode(Request.QueryString["sendName"]);
-            ChosenCust.Text = customerName;
+            ChosenCust.Value = customerName;
 
             if (ChosenService.Items.Count == 0)// only loads the cust info once
             {
@@ -64,8 +64,8 @@ namespace Lab3
                 DateTime endingD = DateTime.Parse(endingDate);
                 var sdate = startingD.ToString("MM/dd/yyyy");
                 var edate = endingD.ToString("MM/dd/yyyy");
-                startingDate.Text = sdate.ToString();
-                endDate.Text = edate.ToString();
+                startingDate.Value = sdate.ToString();
+                endDate.Value = edate.ToString();
             }
             queryResults1.Close();
             sqlConnect1.Close();
@@ -93,8 +93,8 @@ namespace Lab3
                     }
                 }
                 DateTime.Now.ToString("yyyyMMdd");
-                DateTime serviceStart = DateTime.Parse(startingDate.Text);
-                DateTime serviceEnd = DateTime.Parse(endDate.Text);
+                DateTime serviceStart = DateTime.Parse(startingDate.Value);
+                DateTime serviceEnd = DateTime.Parse(endDate.Value);
 
                
 
@@ -172,8 +172,8 @@ namespace Lab3
                     }
                 }
                 DateTime.Now.ToString("yyyyMMdd");
-                DateTime serviceStart1 = DateTime.Parse(startingDate.Text);
-                DateTime serviceEnd1 = DateTime.Parse(endDate.Text);
+                DateTime serviceStart1 = DateTime.Parse(startingDate.Value);
+                DateTime serviceEnd1 = DateTime.Parse(endDate.Value);
 
 
                 for (int H = 1; H <= M; H++) //make it so that it goes by specific employee numbers
@@ -251,8 +251,8 @@ namespace Lab3
             SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
             while (queryResults1.Read())
             {
-                startingDate.Text = queryResults1["ServiceDate"].ToString();
-                endDate.Text = queryResults1["CompletionDate"].ToString();
+                startingDate.Value = queryResults1["ServiceDate"].ToString();
+                endDate.Value = queryResults1["CompletionDate"].ToString();
             }
             queryResults1.Close();
             sqlConnect1.Close();
@@ -269,8 +269,10 @@ namespace Lab3
 
             SqlCommand sqlCommand1 = new SqlCommand();
             sqlCommand1.Parameters.AddWithValue("serviceName", ServiceName);
-            sqlCommand1.Parameters.AddWithValue("serviceDate", HttpUtility.HtmlEncode(startingDate.Text));
-            sqlCommand1.Parameters.AddWithValue("comDate", HttpUtility.HtmlEncode(endDate.Text));
+            
+            sqlCommand1.Parameters.AddWithValue("serviceDate", HttpUtility.HtmlEncode(startingDate.Value));
+            sqlCommand1.Parameters.AddWithValue("comDate", HttpUtility.HtmlEncode(endDate.Value));
+           
             sqlCommand1.Parameters.AddWithValue("porg", HttpUtility.HtmlEncode(PricingDDL.Text));
 
             sqlCommand1.Parameters.AddWithValue("conPrice", HttpUtility.HtmlEncode(PriceBox.Text));
@@ -305,7 +307,7 @@ namespace Lab3
             String sqlQuery3 = "Select CustomerID FROM Customer WHERE CustomerName = @cName";
             SqlConnection sqlConnect3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-            String customerName1 = HttpUtility.HtmlEncode(ChosenCust.Text);
+            String customerName1 = HttpUtility.HtmlEncode(ChosenCust.Value);
 
             SqlCommand sqlCommand3 = new SqlCommand();
             sqlCommand3.Parameters.AddWithValue("cName", customerName1);
@@ -326,7 +328,7 @@ namespace Lab3
             SqlConnection sqlConnect10 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlCommand sqlCommand10 = new SqlCommand();
-            sqlCommand10.Parameters.AddWithValue("servDate", HttpUtility.HtmlEncode(startingDate.Text));
+            sqlCommand10.Parameters.AddWithValue("servDate", HttpUtility.HtmlEncode(startingDate.Value));
             sqlCommand10.Parameters.AddWithValue("CustomerID", customerID);
             sqlCommand10.Connection = sqlConnect10;
             sqlCommand10.CommandType = CommandType.Text;
@@ -394,8 +396,8 @@ namespace Lab3
 
                 SqlCommand sqlCommand2 = new SqlCommand();
                 sqlCommand2.Parameters.AddWithValue("employeeID", employeeIDHold);
-                sqlCommand2.Parameters.AddWithValue("startDate", HttpUtility.HtmlEncode(startingDate.Text));
-                sqlCommand2.Parameters.AddWithValue("endDate", HttpUtility.HtmlEncode(endDate.Text));
+                sqlCommand2.Parameters.AddWithValue("startDate", HttpUtility.HtmlEncode(startingDate.Value));
+                sqlCommand2.Parameters.AddWithValue("endDate", HttpUtility.HtmlEncode(endDate.Value));
                 sqlCommand2.Parameters.AddWithValue("ServiceID", HttpUtility.HtmlEncode(serviceID));
                 sqlCommand2.Parameters.AddWithValue("status", "Assigned to " + HttpUtility.HtmlEncode(ChosenService.Text));
                 sqlCommand2.Connection = sqlConnect2;
@@ -461,7 +463,7 @@ namespace Lab3
             sqlCommand7.Parameters.AddWithValue("empID", empID);
             sqlCommand7.Parameters.AddWithValue("servID", servID);
             sqlCommand7.Parameters.AddWithValue("thisDay", thisDay);
-            sqlCommand7.Parameters.AddWithValue("compDay", HttpUtility.HtmlEncode(endDate.Text));
+            sqlCommand7.Parameters.AddWithValue("compDay", HttpUtility.HtmlEncode(endDate.Value));
             sqlCommand7.Connection = sqlConnect7;
             sqlCommand7.CommandType = CommandType.Text;
             sqlCommand7.CommandText = sqlQuery7;
@@ -510,8 +512,8 @@ namespace Lab3
 
                 SqlCommand sqlCommand12 = new SqlCommand();
                 sqlCommand12.Parameters.AddWithValue("equipID", eqpIDHold);
-                sqlCommand12.Parameters.AddWithValue("startDate", HttpUtility.HtmlEncode(startingDate.Text));
-                sqlCommand12.Parameters.AddWithValue("endDate", HttpUtility.HtmlEncode(endDate.Text));
+                sqlCommand12.Parameters.AddWithValue("startDate", HttpUtility.HtmlEncode(startingDate.Value));
+                sqlCommand12.Parameters.AddWithValue("endDate", HttpUtility.HtmlEncode(endDate.Value));
                 sqlCommand12.Parameters.AddWithValue("ServiceID", HttpUtility.HtmlEncode(serviceID));
                 sqlCommand12.Parameters.AddWithValue("status", "Assigned to " + HttpUtility.HtmlEncode(ChosenService.Text));
                 sqlCommand12.Parameters.AddWithValue("rent", "good");
@@ -540,7 +542,7 @@ namespace Lab3
 
         protected void ReturnButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MoveSchedule.aspx");
+            Response.Redirect("LoggedinMainPage.aspx");
         }
 
         protected void empAdd_Click(object sender, EventArgs e)

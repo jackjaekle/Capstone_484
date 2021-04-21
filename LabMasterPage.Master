@@ -8,79 +8,65 @@
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+        <head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Employee log in">
+	  	<meta name="author" content="Clay Zimmerman">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Green Valley Auctions - Log In</title>
+
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="css/custom.css" rel="stylesheet" type="text/css" media="screen">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
+            
+        <header class="header">
+            <h1>GREEN VALLEY AUCTIONS</h1>
+        </header>
+	</head>
     </asp:ContentPlaceHolder>
 </head>
 
 <body>
     <form id="form1" runat="server">
-        <div align="right">
-
-            <asp:Table ID="Table1" runat="server">
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="Label9" runat="server" Text="Employee Login :"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <div align="left">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Label ID="Label3" runat="server" Text="UserName :"></asp:Label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-			                <asp:TextBox ID="EUserName" runat="server"></asp:TextBox>
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                            <asp:Label ID="Label4" runat="server" Text="Password :"></asp:Label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-			                <asp:TextBox ID="EPassword" runat="server" TextMode="Password"></asp:TextBox>
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="Button2" runat="server" Text="Login" OnClick="ELogin_Click" />
-
-                            <br />
-
-                        </div>
-                    </asp:TableCell>
-                </asp:TableRow>
-
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="Label11" runat="server" Text="Customer Login :"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <div>
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                           <asp:Label ID="Label6" runat="server" Text="UserName :"></asp:Label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:TextBox ID="CUserName" runat="server"></asp:TextBox>
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                            <asp:Label ID="Label7" runat="server" Text="Password :"></asp:Label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:TextBox ID="CPassword" runat="server"></asp:TextBox>
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="Button3" runat="server" Text="Login" OnClick="CLogin_Click" />
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="NewCustomer" runat="server" Text="Sign Up" OnClick="NewCustomer_Click"/>
-
-                            <br />
-
-                        </div>
-                    </asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>
-
-            <br />
-                <asp:Label ID="MissingInput" runat="server" Text=""></asp:Label>
-
-        </div>
-
+      
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
 
     </form>
 </body>
+
+    <asp:ContentPlaceHolder ID="Footer" runat="server">
+         <footer>
+            <div class="container">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="footerp"> 
+                        Green Valley Auctions<br>
+                        2259 Green Valley Lane<br>
+                        Mount Crawford, Virginia 22841<br>
+                        (540) 434-4260
+                    </h5>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="footerp"> 
+                        Office Hours:<br>
+                        Monday-Thursday: 8 a.m. - 4:30 p.m.<br>
+                        Friday* - 8:30 a.m. - 3:00 p.m.<br>
+                        Saturday - Sunday: CLOSED<br>
+                        *Auctions held every-other Friday
+                    </h5>
+                </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <h5 style="margin-top: 3rem; margin-left: 2.5rem;">&#169;2021 Green Valley Auctions</h5>
+                    </div>
+                </div>
+            </div> <!-- end container -->
+        </footer>
+
+    </asp:ContentPlaceHolder>
 </html>

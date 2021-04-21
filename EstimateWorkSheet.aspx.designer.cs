@@ -15,31 +15,13 @@ namespace Lab3
     {
 
         /// <summary>
-        /// CustLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CustLabel;
-
-        /// <summary>
         /// ChosenCust control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ChosenCust;
-
-        /// <summary>
-        /// ServiceLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ServiceLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ChosenCust;
 
         /// <summary>
         /// ChosenService control.
@@ -51,31 +33,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList ChosenService;
 
         /// <summary>
-        /// MoveDateLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MoveDateLabel;
-
-        /// <summary>
         /// startingDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label startingDate;
-
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText startingDate;
 
         /// <summary>
         /// endDate control.
@@ -84,16 +48,7 @@ namespace Lab3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label endDate;
-
-        /// <summary>
-        /// PricingOrigin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PricingOrigin;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText endDate;
 
         /// <summary>
         /// PricingDDL control.
@@ -105,15 +60,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList PricingDDL;
 
         /// <summary>
-        /// numOfTrucks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label numOfTrucks;
-
-        /// <summary>
         /// truckDDL control.
         /// </summary>
         /// <remarks>
@@ -123,13 +69,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList truckDDL;
 
         /// <summary>
-        /// truckAdd control.
+        /// equipButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button truckAdd;
+        protected global::System.Web.UI.WebControls.Button equipButton;
 
         /// <summary>
         /// truckList control.
@@ -141,15 +87,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.ListBox truckList;
 
         /// <summary>
-        /// numOfWorkers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label numOfWorkers;
-
-        /// <summary>
         /// empDDL control.
         /// </summary>
         /// <remarks>
@@ -159,13 +96,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList empDDL;
 
         /// <summary>
-        /// empAdd control.
+        /// empButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button empAdd;
+        protected global::System.Web.UI.WebControls.Button empButton;
 
         /// <summary>
         /// empList control.
@@ -177,15 +114,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.ListBox empList;
 
         /// <summary>
-        /// PriceLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PriceLabel;
-
-        /// <summary>
         /// PriceBox control.
         /// </summary>
         /// <remarks>
@@ -193,33 +121,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PriceBox;
-
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-
-        /// <summary>
-        /// CompareValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
-
-        /// <summary>
-        /// SuppliesLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SuppliesLabel;
 
         /// <summary>
         /// SuppliesBox control.
@@ -249,15 +150,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator4;
 
         /// <summary>
-        /// EstLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EstLabel;
-
-        /// <summary>
         /// EstBox control.
         /// </summary>
         /// <remarks>
@@ -283,15 +175,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator5;
-
-        /// <summary>
-        /// FinalLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FinalLabel;
 
         /// <summary>
         /// FinalBox control.
@@ -321,15 +204,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator6;
 
         /// <summary>
-        /// MileageLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MileageLabel;
-
-        /// <summary>
         /// MileageBox control.
         /// </summary>
         /// <remarks>
@@ -355,15 +229,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator7;
-
-        /// <summary>
-        /// FuelLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FuelLabel;
 
         /// <summary>
         /// FuelBox control.
@@ -393,15 +258,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator8;
 
         /// <summary>
-        /// InsuranceLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label InsuranceLabel;
-
-        /// <summary>
         /// InsuranceBox control.
         /// </summary>
         /// <remarks>
@@ -418,15 +274,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
-
-        /// <summary>
-        /// WorkerCostLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label WorkerCostLabel;
 
         /// <summary>
         /// WorkerCostBox control.
@@ -456,15 +303,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator10;
 
         /// <summary>
-        /// FoodLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FoodLabel;
-
-        /// <summary>
         /// FoodBox control.
         /// </summary>
         /// <remarks>
@@ -481,15 +319,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
-
-        /// <summary>
-        /// HotelLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label HotelLabel;
 
         /// <summary>
         /// HotelBox control.

@@ -145,6 +145,20 @@
     <Compile Include="LabMasterPage.Master.designer.cs">
       <DependentUpon>LabMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="landingcustserv.aspx.cs">
+      <DependentUpon>landingcustserv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landingcustserv.aspx.designer.cs">
+      <DependentUpon>landingcustserv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landingequip.aspx.cs">
+      <DependentUpon>landingequip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landingequip.aspx.designer.cs">
+      <DependentUpon>landingequip.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogAuctionInfo.aspx.cs">
       <DependentUpon>LogAuctionInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -364,11 +378,27 @@
     <Compile Include="LoggedCustServAuction.aspx.designer.cs">
       <DependentUpon>LoggedCustServAuction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="landingauctinv.aspx.cs">
+      <DependentUpon>landingauctinv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landingauctinv.aspx.designer.cs">
+      <DependentUpon>landingauctinv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="temp.aspx.cs">
+      <DependentUpon>temp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="temp.aspx.designer.cs">
+      <DependentUpon>temp.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddCustByPhone.aspx" />
     <Content Include="AddServiceByPhone.aspx" />
     <Content Include="AuctionPickUpForm.aspx" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\custom.css" />
     <Content Include="CustHistoryPage.aspx" />
     <Content Include="CustomerMainPage.aspx" />
     <Content Include="CustomerPortal.aspx" />
@@ -376,6 +406,16 @@
     <Content Include="DriverPage.aspx" />
     <Content Include="EquipmentManagement.aspx" />
     <Content Include="EstimateWorkSheet.aspx" />
+    <Content Include="images\GreenValleyButton.png" />
+    <Content Include="Img\bar0.png" />
+    <Content Include="Img\bar1.png" />
+    <Content Include="Img\bar2.png" />
+    <Content Include="Img\bar3.png" />
+    <Content Include="Img\bar4.png" />
+    <Content Include="Img\bar5.png" />
+    <Content Include="Img\bar6.png" />
+    <Content Include="landingcustserv.aspx" />
+    <Content Include="landingequip.aspx" />
     <Content Include="LogAuctionInfo.aspx" />
     <Content Include="LogAvailableAuctions.aspx" />
     <Content Include="LogCreateNewAuction.aspx" />
@@ -405,12 +445,18 @@
     <Content Include="LogWorkFlowInfo.aspx" />
     <Content Include="MainPageNoLogin.aspx" />
     <Content Include="LoggedCustServAuction.aspx" />
+    <Content Include="landingauctinv.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LabMasterPage.Master" />
     <Content Include="LoggedinMaster.Master" />
+    <Content Include="css\.DS_Store" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="images\.DS_Store" />
+    <Content Include=".DS_Store" />
     <None Include="packages.config" />
     <Content Include="MoveSchedule.aspx" />
+    <Content Include="temp.aspx" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -419,9 +465,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

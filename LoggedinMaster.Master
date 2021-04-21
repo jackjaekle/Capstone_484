@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LoggedinMaster.master.cs" Inherits="Lab1.LoggedinMaster" %>
+
+<!--Noah  George, William Kilpatrick, Henry Requeno-Villeda  2/15/2021 -->
+<form id="form1" runat="server">
+
+    <!DOCTYPE html>
+
+    <html>
+
+    <head runat="server">
+        <title></title>
+
+        <asp:ContentPlaceHolder ID="head" runat="server">
+
+            <meta charset="UTF-8">
+            <meta name="description" content="Employee log in">
+            <meta name="author" content="Clay Zimmerman">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Green Valley Auctions - Log In</title>
+
+            <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+            <link href="css/custom.css" rel="stylesheet" type="text/css" media="screen">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
+
+            <header class="header">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h1>GREEN VALLEY AUCTIONS</h1>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="dropdown">
+                            <body>
+                                <asp:TextBox Visible="false" ID="UserLoggedIn" runat="server" ></asp:TextBox>
+                                <asp:Button runat="server" Style="margin-bottom: -7.5rem" OnClick="Logout_Click" CssClass="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" Text="Log Out" />
+                            </body>
+                           
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </asp:ContentPlaceHolder>
+    </head>
+
+
+    <body>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </body>
+
+    <asp:ContentPlaceHolder ID="Footer" runat="server">
+        <footer>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-xs-6 col-md-6 col-lg-6">
+                        <h5 class="footerp">Green Valley Auctions<br>
+                            2259 Green Valley Lane<br>
+                            Mount Crawford, Virginia 22841<br>
+                            (540) 434-4260
+                        </h5>
+                    </div>
+                    <div class="col-xs-6 col-md-6 col-lg-6">
+                        <h5 class="footerp">Office Hours:<br>
+                            Monday-Thursday: 8 a.m. - 4:30 p.m.<br>
+                            Friday* - 8:30 a.m. - 3:00 p.m.<br>
+                            Saturday - Sunday: CLOSED<br>
+                            *Auctions held every-other Friday
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-xs-4 col-md-4 col-lg-4">
+                        <h5 style="margin-top: 3rem; margin-left: 2.5rem;">&#169;2021 Green Valley Auctions</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- end container -->
+        </footer>
+
+    </asp:ContentPlaceHolder>
+</form>
+
+</html>
