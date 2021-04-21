@@ -21,7 +21,7 @@ namespace Lab3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label custName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText custName;
 
         /// <summary>
         /// auctionDDL control.
@@ -39,7 +39,7 @@ namespace Lab3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label auctLocation;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText auctLocation;
 
         /// <summary>
         /// AuctionStart control.
@@ -48,16 +48,7 @@ namespace Lab3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AuctionStart;
-
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText AuctionStart;
 
         /// <summary>
         /// equipAvail control.
@@ -87,24 +78,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.ListBox equipList;
 
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-
-        /// <summary>
         /// empAvail control.
         /// </summary>
         /// <remarks>
@@ -132,22 +105,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.ListBox empList;
 
         /// <summary>
-        /// Label3 control.
+        /// MissingText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
-        /// matchCheck control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label matchCheck;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText MissingText;
 
         /// <summary>
         /// Return control.
@@ -166,14 +130,5 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button servCust;
-
-        /// <summary>
-        /// MissingText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MissingText;
     }
 }
